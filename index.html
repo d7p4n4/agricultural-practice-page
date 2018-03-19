@@ -1,0 +1,918 @@
+<!doctype html> 
+<html lang="en">
+  <head>
+    <!-- Required meta tags --> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+    <!-- Bootstrap CSS --> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+    <!-- font fam -->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Sarala|Ubuntu:500" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>    
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <title>Practice page</title> 
+    
+    <link href="reset.css" type="text/css" rel="stylesheet">
+        
+    <!-- main styles -->
+
+    <style>
+      html {
+        font-size: 16px;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+      }
+      
+      @media (min-width: 992px) {
+        html {
+          font-size: 18px;
+        }
+      }
+    
+     a {
+        text-decoration: none;
+        color: inherit;
+      }
+      
+      a:hover {
+        text-decoration: none;
+        color: inherit;
+      }
+      
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+      }
+      
+      header {
+        width: 100%;
+        height: auto;
+        padding: 2rem 1rem;
+        position: relative;
+        background-image: url(assets/bcg-01.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+      
+      header::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 0;
+        width: 0;
+        border-bottom: 2rem solid rgb(242,210,100);
+        border-left: calc(100vw - 17px) solid transparent;
+      }
+      
+      .logo {
+        text-align: center;
+        color: white;
+        font-family: pacifico;
+        font-size: 1.5rem;
+      }
+      
+      .logo .fa-star {
+        color: rgb(242,190,70);
+        height: 1rem;
+        width: 1rem;
+      }
+      
+      .nav-menu {
+        font-size: 1.2rem;
+        color: white;
+        font-family: ubuntu;
+        text-align: center;
+        border-left: .1rem solid rgba(255,255,255,.5);
+        transition: all .3s ease;
+      }
+      
+      .contact-border {
+        border-right: .1rem solid rgba(255,255,255,.5);
+      }
+      
+      .service-border {
+        border-right: .1rem solid rgba(255,255,255,.5);
+      }
+      
+      @media (min-width: 992px) {
+        .service-border {
+          border-right: none;
+        }
+      }
+      
+      @media (min-width: 768px) {
+        .nav-menu {
+          font-size: 1rem;
+        }
+      }
+      
+      .nav-menu .fa-circle {
+        width: .5rem;
+        height: .5rem;
+        color: white;
+        position: absolute;
+        left: calc(50% - .25rem);
+        top: 50%;
+        border: .1rem solid white;
+        border-radius: 50%;
+        opacity: 0;
+      }
+      
+      @keyframes fa-circle {
+        0% {opacity: 0;
+            top: 50%;}
+        
+        65% {opacity: .75;
+             top: -90%;
+             color: rgb(242,190,70);
+             border: .1rem solid rgb(242,190,70);}
+        
+        75% {opacity: .9;
+             top: -60%;
+             color: rgb(242,190,70);
+             border: .1rem solid rgb(242,190,70);}
+
+        85% {opacity: 1;
+             top: -80%;
+             color: rgb(242,190,70);
+             border: .1rem solid rgb(242,190,70);}
+        
+        100% {opacity: 1;
+              top: -75%;
+              color: rgb(242,190,70);
+              border: .1rem solid rgb(242,190,70);}
+      }
+      
+      .nav-menu:hover {
+        color: rgb(242,190,70);
+        cursor: pointer
+      }
+      
+      .nav-menu:hover .fa-circle {
+        animation-name: fa-circle;
+        animation-duration: .3s;
+        animation-fill-mode: forwards;
+        animation-direction: normal;
+        animation-iteration-count: 1;
+      }
+      
+      .turn-the-page-box {
+        border: .1rem solid white;
+        text-align: center;
+        box-sizing: border-box;
+      }
+      
+      .turn-the-page-text {
+        font-size: 1rem;
+        font-family: ubuntu;
+        color: white;
+        padding: .35rem 0;
+      }
+      
+      .turn-the-page-button {
+        color: white;
+        padding: .35rem 0;
+        border-left: .1rem solid white;
+      }
+      
+      .header-title {
+        color: white;
+        font-family: ubuntu;
+        font-size: 1.75rem;
+        text-transform: uppercase;
+        
+      }
+      
+      .header-text {
+        color: white;
+        font-size: 1rem;
+        font-family: sarala;
+      }
+      
+      .offset {
+        display: none;
+      }
+      
+      @media (min-width: 768px) {
+        .turn-the-page-box {
+          margin-top: 5rem;
+        }
+        
+        .header-title {
+          font-size: 2rem;
+        }
+        
+        .header-text {
+          line-height: 1.25rem;
+        }
+        
+        .offset {
+          display: block;
+        }
+      }
+
+      @media (min-width: 768px) {
+        header {
+          padding: 2rem 3rem;
+        }
+      }
+      
+      @media (min-width: 992px) {
+        header {
+          padding: 2rem 5rem;
+        }
+        
+        .logo {
+          text-align: left;
+        }
+      }
+      
+      @media (min-width: 1200px) {
+        header {
+          padding: 2rem 8rem;
+        }
+      }
+      
+      /* wrapper-1 */
+      
+      .wrapper-1 {
+        background: rgb(242,210,100);
+        padding: 3rem 1rem;
+        position: relative;
+      }
+      
+      .wrapper-1::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-bottom: 1rem solid rgb(62,62,70);
+        border-right: calc(100vw - 17px) solid transparent;
+      }
+      
+      .wrapper-title {
+        font-size: 3rem;
+        color: white;
+        font-family: pacifico;
+        font-style: italic;
+      }
+      
+      .hello-img-title {
+        color: white;
+        font-family: ubuntu;
+        font-size: 1.25rem;
+        text-transform: uppercase;
+      }
+      
+      .first-btn {
+        width: 50%;
+        height: 2rem;
+        border: .25rem solid white;
+        color: white;
+        font-size: 1rem;
+        font-family: salana;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 1.5rem;
+        margin-bottom: 2.5rem;
+        padding-top: .25rem;
+        position: relative;
+        left: 25%;
+      }
+      
+      @media (min-width:768px) {
+        .first-btn {
+          margin-bottom: 0;
+        }
+        
+        .wrapper-1 {
+          padding: 2rem 3rem;
+        }
+      }
+      
+      @media (min-width: 992px) {
+        .wrapper-1 {
+          padding: 2rem 5rem;
+        }
+        
+        .first-btn {
+          left: 0;
+        }
+      }
+      
+      @media (min-width: 1200px) {
+        .wrapper-1 {
+          padding: 2rem 8rem;
+        }
+      }
+      
+      /* wrapper-2 */
+      
+      .wrapper-2 {
+        width: 100%;
+        padding: 2rem 1rem;
+        background: rgb(62,62,70);
+      }
+      
+      .service-title {
+        font-family: pacifico;
+        font-size: 1.75rem;
+        color: white;
+      }
+      
+      .wrapper-2 .first-btn {
+        color: rgb(242,210,100);
+        border: .25rem solid rgb(242,210,100);
+        width: 30%;
+        left: 35%;
+      }
+
+      @media (min-width: 768px) {
+        .wrapper-2 {
+          padding: 2rem 3rem;
+        }
+      }      
+      
+      @media (min-width: 992px) {
+        .wrapper-2 {
+          padding: 2rem 5rem;
+        }
+        
+        .wrapper-2 .first-btn {
+          left: 0;
+        }
+        
+        .wrapper-2 .header-text {
+          font-size: .85rem;
+        }
+      }
+      
+      @media (min-width: 1200px) {
+        .wrapper-2 {
+          padding: 2rem 8rem;
+        }
+      }
+
+      .fa-coffee,
+      .fa-cloud,
+      .fa-cog,
+      .fa-users {
+        font-size: 5rem;
+        color: rgb(242,210,100);
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      /* wrapper-3 */
+      
+      .wrapper-3 {
+        width: 100%;
+        padding: 2rem 1rem;
+        background-image: url(assets/straw.jpg);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: relative;
+      }
+      
+      .wrapper-3::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-top: 2rem solid rgb(62,62,70);
+        border-right: calc(100vw - 17px) solid transparent;
+      }
+      
+      @media (min-width: 768px) {
+        .wrapper-3 {
+          padding: 2rem 3rem;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .wrapper-3 {
+          padding: 2rem 5rem;
+        }
+      }
+      
+      @media (min-width: 1200px) {
+        .wrapper-3 {
+          padding: 2rem 8rem;
+        }
+      }
+      
+      .wrapper-3 .turn-the-page-box {
+        margin-top: 1.5rem;
+        border: .2rem solid white;
+        border-left: none;
+      }
+      
+      .wrapper-3 .turn-the-page-text {
+        font-size: .85rem;
+      }
+      
+      .wrapper-3 .img-fluid {
+        min-width: 100%;
+      }
+      
+      /* wrapper-4 */
+      
+      .wrapper-4 {
+        width: 100%;
+        padding: 2rem 1rem;
+        position: relative;
+        background-image: url(assets/bcg-02.jpg);
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      
+      .wrapper-4::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-bottom: 2rem solid rgb(240,240,240);
+        border-left: calc(100vw - 17px) solid transparent;
+      }
+      
+      .wrapper-4 .logo {
+        text-align: left;
+      }
+      
+      .wrapper-4-title {
+        color: white;
+        font-family: ubuntu;
+        font-size: 2rem;
+        line-height: 2.4rem;
+      }
+      
+      @media (min-width: 768px) {
+        .wrapper-4 {
+          padding: 2rem 3rem;
+        }
+        
+        .wrapper-4-title {
+          font-size: 2.5rem;
+          line-height: 2.9rem;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .wrapper-4 {
+          padding: 2rem 5rem;
+        }
+        
+        .wrapper-4 .header-text {
+          font-size: .85rem;
+        }
+      }
+      
+      @media (min-width: 1200px) {
+        .wrapper-4 {
+          padding: 2rem 8rem;
+        }
+        
+        .wrapper-4-tile {
+          font-size: 3rem;
+          line-height: 3.4rem;
+        }
+      }
+      
+      /* footer */
+      
+      footer {
+        position: relative;
+        width: 100%;
+        padding: 2rem 1rem;
+        background: rgb(240,240,240);
+      }
+      
+      footer .logo {
+        color: rgba(0,0,0,.8);
+        text-align: center;
+      }
+      
+      .privacy {
+        font-size: .75rem;
+        text-align: center;
+        font-family: sarala;
+        color: rgba(0,0,0,.5);
+      }
+      
+      .footer-text {
+        font-size: .75rem;
+        font-family: sarala;
+        color: rgba(0,0,0,.5);
+        line-height: 1rem;
+      }
+      
+      .fa-twitter,
+      .fa-facebook-square,
+      .fa-instagram,
+      .fa-linkedin {
+        font-size: 1.5rem;
+        padding-right: .5rem;
+        color: rgb(242,210,100);
+      }
+      
+      .ok {
+        color: rgba(0,0,0,.8);
+        font-family: ubuntu;
+        font-size: 2.5rem;
+      }
+      
+      .question {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        border: .3rem solid rgb(242,210,100);
+        position: relative;
+        top: calc(50% - 1.5rem);
+        left: calc(50% - 1.5rem);
+        text-align: center;
+        color: rgb(242,210,100);
+        font-family: sarala;
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding-top: .45rem;
+        animation-name: pulse;
+        animation-duration: 2s;
+        animation-direction: normal;
+        animation-iteration-count: infinite;
+        transform: scale(.9);
+      }
+      
+      .pulse {
+        background: transparent;
+        width: 3.3rem;
+        height: 3.3rem;
+        animation: none;
+        border-radius: 50%;
+        position: absolute;
+        top: 2rem;
+        cursor: pointer;
+        left: 90%;
+        animation-name: boxShadow;
+        animation-duration: 2s;
+        animation-direction: normal;
+        animation-iteration-count: infinite;
+        transition: background .3s ease, width .5s .3s, height .5s .3s, left .5s .3s, top .5s .3s, border-radius .5s .3s;
+      }
+      
+      @keyframes pulse {
+        0% {}
+        50% {transform: scale(1.1);}
+      }
+      
+      @keyframes boxShadow {
+        0% {box-shadow: 0 0 0 0 rgba(242,210,100,0);}
+        30% {box-shadow: 0 0 0 0 rgba(242,210,100,1);}
+        89% {box-shadow: 0 0 0 15px rgba(242,210,100,0);}
+      }
+      
+      .morphing.pulse {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 0;
+        width: calc(100vw - 17px);
+        height: 100%;
+        background: rgb(242,210,100);
+        animation: none;
+      }
+      
+      .morph-text {
+        font-family: ubuntu;
+        color: white;
+        font-size: 2rem;
+        text-align: center;
+        display: none;
+        opacity: 0;
+        transition: all .5s ease .5s;
+      }
+      
+      @media (min-width: 768px) {
+        .morph-text {
+          text-align: right;
+        }
+      }
+      
+      .morphing .morph-text {
+        display: block;
+        opacity: 1;
+      }
+      
+      form {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+      
+      input {
+        width: 100%;
+        color: white;
+        font-family: sarala;
+        font-size: 1rem;
+        background: transparent;
+        border: .25rem solid white;
+        border-radius: .25rem;
+        display: none;
+        opacity: 0;
+        transition: all .5s ease .5s;
+        padding: 0 1rem;
+      }
+      
+      input:focus {
+        outline: none;
+      }
+      
+      .morphing input {
+        display: block;
+        opacity: 1;
+      }
+      
+      .row {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    </style>
+  </head>
+  <body>
+      
+    <header>
+      
+      <div class="row justify-content-center p-0 m-0">
+        <div class="col-12 col-md-5 mb-5">
+          <h1 class="logo"><i class="fas fa-star"></i> agriculture</h1>
+        </div>
+        <div class="col-12 col-md-7">
+          <div class="row justify-content-center p-0 m-0">
+            <div class="col-4 col-lg-2 p-0 mb-3">
+              <p class="nav-menu">Home<i class="far fa-circle"></i></p>
+            </div>
+            <div class="col-4 col-lg-2 p-0 mb-3">
+              <p class="nav-menu p-0">About<i class="far fa-circle"></i></p>
+            </div>
+            <div class="col-4 col-lg-2 p-0 mb-3">
+              <p class="nav-menu service-border">Services<i class="far fa-circle"></i></p>
+            </div>
+            <div class="col-4 col-lg-2 p-0 mb-3">
+              <p class="nav-menu">Gallery<i class="far fa-circle"></i></p>
+            </div>
+            <div class="col-4 col-lg-2 p-0 mb-3">
+              <p class="nav-menu">Blog<i class="far fa-circle"></i></p>
+            </div>
+            <div class="col-4 col-lg-2 p-0 mb-3">
+              <p class="nav-menu contact-border">Contact<i class="far fa-circle"></i></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row ml-4 mt-5 mb-3">
+        <div class="col-4 col-md-2 col-lg-2 col-xl-1 turn-the-page-box p-0">
+          <div class="row">
+            <div class="col-6 p-0 m-0">
+              <p class="turn-the-page-text">1/3</p>
+            </div>
+            <div class="col-3 p-0 m-0">
+              <p class="turn-the-page-button"><i class="fas fa-chevron-left"></i></p>
+            </div>
+            <div class="col-3 p-0 m-0">
+              <p class="turn-the-page-button"><i class="fas fa-chevron-right"></i></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row ml-4 mr-4 p-0 m-0">
+        <div class="col-12 col-md-7 col-lg-6 p-0 m-0 mb-2">
+          <h1 class="header-title">make your business flourish</h1>
+        </div>
+        <div class="row p-0 m-0" style="width: 100%;">
+          <div class="col-12 col-md-7 col-lg-6 p-0 m-0">
+            <p class="header-text">Lorem ipsum dolor sit amet, per no integre verterem. Vide ancillae verterem te vel. Nemore verear pro ne. Officiis mediocritatem nam te.</p>
+          </div>
+        </div>
+      </div>
+    
+    </header>
+    
+    <div class="wrapper-1">
+      
+      <div class="row mb-5">
+        <div class="col-12">
+          <h1 class="wrapper-title">hello!</h1>
+        </div>
+      </div>
+      
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-4">
+          <img class="img-fluid" src="assets/tomatoes.jpg" alt="">
+          <h3 class="hello-img-title mt-3 mb-3">Lorem Ipsum Dolor</h3>
+          <p class="header-text">Vel ea volumus mediocrem instructior, in est eirmod dolores ancillae. Vel error delenit interpretaris eu, novum aeque cum et, vidit iriure alienum et mei. Sit ex meliore perfecto liberavisse, eripuit accumsan et nec.</p>
+          <div class="first-btn mb-md-4">See More</div>
+        </div>
+        <div class="col-12 col-md-4">
+          <img class="img-fluid" src="assets/kombajn.jpg" alt="">
+          <h3 class="hello-img-title mt-3 mb-3">Lorem Ipsum Dolor</h3>
+          <p class="header-text">Vel ea volumus mediocrem instructior, in est eirmod dolores ancillae. Vel error delenit interpretaris eu, novum ae4ue cum et, vidit iriure alienum et mei. Sit ex meliore perfecto liberavisse, eripuit accumsan et nec.</p>
+          <div class="first-btn mb-md-4">See More</div>
+        </div>
+        <div class="col-12 col-md-4">
+          <img class="img-fluid" src="assets/pumpkins.jpg" alt="">
+          <h3 class="hello-img-title mt-3 mb-3">Lorem Ipsum Dolor</h3>
+          <p class="header-text">Vel ea volumus mediocrem instructior, in est eirmod dolores ancillae. Vel error delenit interpretaris eu, novum aeque cum et, vidit iriure alienum et mei. Sit ex meliore perfecto liberavisse, eripuit accumsan et nec.</p>
+          <div class="first-btn mb-md-4">See More</div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="wrapper-2">
+    
+      <div class="row mb-5">
+        <div class="col-12">
+          <h3 class="service-title">main services</h3>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-xl-3 mb-md-5 mb-xl-0">
+          <i class="fas fa-coffee"></i>
+          <h3 class="hello-img-title mt-3 mb-3">Mauris Fermelum</h3>
+          <p class="header-text mb-3">Vel ea volumus mediocrem instructior, in est eirmod dolores ancillae. Sit ex meliore perfecto liberavisse, eripuit accumsan et nec.</p>
+          <p class="header-text">Vel ea volumus mediocrem instructior, in est eirmod dolores ancillae. Sit ex meliore perfecto liberavisse, eripuit accumsan et nec. Sea nostro nostrud scriptorem in, an eos justo fugit, ex fabulas perfecto pertinax cum.</p>
+          <div class="first-btn">More</div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3 mb-md-5 mb-xl-0">
+          <i class="fas fa-cloud"></i>
+          <h3 class="hello-img-title mt-3 mb-3">Mauris Fermelum</h3>
+          <p class="header-text mb-3">Vel ea volumus mediocrem instructior, in est eirmod dolores ancillae. Sit ex meliore perfecto liberavisse, eripuit accumsan et nec.</p>
+          <p class="header-text">Vel ea volumus mediocrem instructior, in est eirmod dolores ancillae. Sit ex meliore perfecto liberavisse, eripuit accumsan et nec. Sea nostro nostrud scriptorem in, an eos justo fugit, ex fabulas perfecto pertinax cum.</p>
+          <div class="first-btn">More</div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3">
+          <i class="fas fa-cog"></i>
+          <h3 class="hello-img-title mt-3 mb-3">Mauris Fermelum</h3>
+          <p class="header-text mb-3">Vel ea volumus mediocrem instructior, in est eirmod dolores ancillae. Sit ex meliore perfecto liberavisse, eripuit accumsan et nec.</p>
+          <p class="header-text">Vel ea volumus mediocrem instructior, in est eirmod dolores ancillae. Sit ex meliore perfecto liberavisse, eripuit accumsan et nec. Sea nostro nostrud scriptorem in, an eos justo fugit, ex fabulas perfecto pertinax cum.</p>
+          <div class="first-btn">More</div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3">
+          <i class="fas fa-users"></i>
+          <h3 class="hello-img-title mt-3 mb-3">Mauris Fermelum</h3>
+          <p class="header-text mb-3">Vel ea volumus mediocrem instructior, in est eirmod dolores ancillae. Sit ex meliore perfecto liberavisse, eripuit accumsan et nec.</p>
+          <p class="header-text">Vel ea volumus mediocrem instructior, in est eirmod dolores ancillae. Sit ex meliore perfecto liberavisse, eripuit accumsan et nec. Sea nostro nostrud scriptorem in, an eos justo fugit, ex fabulas perfecto pertinax cum.</p>
+          <div class="first-btn">More</div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="wrapper-3">
+    
+      <div class="row mb-2 mt-3">
+        <div class="col-12">
+          <h3 class="service-title">our gallery</h3>
+        </div>
+      </div>
+      
+      <div class="row mt-0 mb-5 ml-md-3">
+        <div class="col-4 col-md-3 col-lg-2 turn-the-page-box pl-0 pr-0" style="border-left: .2rem solid white;">
+          <p class="turn-the-page-text">COMPLETED</p>
+        </div>
+        <div class="col-4 col-md-3 col-lg-2 turn-the-page-box pr-0 pl-0">
+          <p class="turn-the-page-text">IN PROGRESS</p>
+        </div>
+        <div class="col-4 col-md-3 col-lg-2 turn-the-page-box pr-0 pl-0">
+          <p class="turn-the-page-text">COMING SOON</p>
+        </div>
+      </div>
+      
+      <div class="row justify-content-center">
+        <div class="col-11 col-md-6 col-lg-4 mb-4">
+          <img class="img-fluid" src="assets/farm01.jpg" alt="">
+        </div>
+        <div class="col-11 col-md-6 col-lg-4 mb-4">
+          <img class="img-fluid" src="assets/farm02.jpg" alt="">
+        </div>
+        <div class="col-11 col-md-6 col-lg-4 mb-4">
+          <img class="img-fluid" src="assets/farm03.jpg" alt="">
+        </div>
+        <div class="col-11 col-md-6 col-lg-4 mb-4">
+          <img class="img-fluid" src="assets/farm04.jpg" alt="">
+        </div>
+        <div class="col-11 col-md-6 col-lg-4 mb-4">
+          <img class="img-fluid" src="assets/farm05.jpg" alt="">
+        </div>
+        <div class="col-11 col-md-6 col-lg-4 mb-4">
+          <img class="img-fluid" src="assets/farm06.jpg" alt="">
+        </div>
+      </div>
+    
+    </div>
+    
+    <div class="wrapper-4">
+    
+      <div class="row mt-4 p-0 m-0">
+        <div class="col-12 col-md-5 mb-5">
+          <h1 class="logo"><i class="fas fa-star"></i> agriculture</h1>
+        </div>
+      </div>
+      
+      <div class="row mb-4">
+        <div class="col-12 col-lg-10">
+          <h1 class="wrapper-4-title">Find everything you wanted to know about agriculture!</h1>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-12 col-lg-6 mb-4">
+          <p class="header-text">Ei cum alii mentitum mediocrem. Usu tota minimum id, sed dicam inermis in. Vis erroribus splendide omittantur ea. Sit at omnis putant patrioque.
+            <br></br>
+          Te qui stet equidem. Ne volumus repudiare qui, cum latine dolorem id. Sea et option feugait, ut est possit deserunt molestiae. Te duo nihil impetus nonumes, eam modo eius argumentum id. Ex his solet corrumpit.</p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+          <p class="header-text">Quaeque nusquam eum cu, virtute fastidii moderatius mei ex, alii autem ei vim. Nec habemus petentium id, iriure vidisse fuisset ex vis, cum summo denique corpora no. His ponderum recusabo et, mentitum periculis pro in. Assum diceret aliquando id mel, eripuit maiestatis te sea. Qui ad viderer aliquid, officiis recusabo inimicus mea cu. Ea sed nihil tincidunt deseruisse, vel rebum dissentias at.</p>
+        </div>
+      </div>
+    
+    </div>
+
+    <footer>
+
+      <div class="row">
+        <div class="col-12 col-md-6 align-self-center">
+          <h1 class="logo mb-3"><i class="fas fa-star"></i> agriculture</h1>
+          <p class="privacy">Agricultural &copy; 2015- Privacy Policy</p>
+        </div>
+        <div class="col-12 col-md-6 p-0">
+          <div class="row">
+            <div class="col-6 col-md-3 p-0 mb-4 mt-4 mb-md-0 mt-md-0 pl-3 pl-md-0">
+              <p class="footer-text">Adress: Cambridge 1586 Cane Hill road 83.</p>
+              <p class="footer-text">Telephone: +1 8000 123 4567</p>
+              <p class="footer-text">Mobile: +1 8000 123 456</p>
+            </div>
+            <div class="col-6 col-md-3 p-0 align-self-center" style="text-align: center;">
+              <p class="footer-text mb-3">Signup for mail</p>
+              <p class="footer-icons"><i class="fab fa-twitter"></i><i class="fab fa-facebook-square"></i><i class="fab fa-instagram"></i><i class="fab fa-linkedin"></i></p>
+            </div>
+            <div class="col-6 col-md-3 p-0 pl-3 pl-md-0">
+              <h3 class="ok">ok</h3>
+            </div>
+          </div>
+        </div>
+              <div class="pulse">
+                <div class="question">?</div>
+                <div class="row justify-content-center mt-4">
+                  <div class="col-12 col-md-6 col-lg-4">
+                    <p class="morph-text mb-4 mb-md-0">Your search: </p>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-4">
+                    <form>
+                      <input type="text" name="search"/>
+                    </form>
+                  </div>
+                </div>
+              </div>
+      </div>
+
+    </footer>
+
+<script>
+  window.onload = function() {
+    
+    $(".pulse").on("click", function() {
+      $(".pulse").addClass("morphing");
+    })
+    
+  }
+
+</script>
+      
+       
+ <!-- Optional JavaScript --> 
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+
+  </body> 
+</html>
