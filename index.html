@@ -564,14 +564,27 @@
         animation: none;
         border-radius: 50%;
         position: absolute;
-        top: 2rem;
+        top: 13rem;
         cursor: pointer;
-        left: 90%;
+        left: 65%;
         animation-name: boxShadow;
         animation-duration: 2s;
         animation-direction: normal;
         animation-iteration-count: infinite;
-        transition: background .3s ease, width .5s .3s, height .5s .3s, left .5s .3s, top .5s .3s, border-radius .5s .3s;
+        transition: all .5s ease;
+      }
+      
+      @media(min-width: 526px) {
+        .pulse {
+          top: 11rem;
+        }
+      }
+      
+      @media (min-width: 768px) {
+        .pulse {
+          top: 2rem;
+          left: 90%;
+        }
       }
       
       @keyframes pulse {
@@ -585,6 +598,10 @@
         89% {box-shadow: 0 0 0 15px rgba(242,210,100,0);}
       }
       
+      .morphing .question {
+        display: none;
+      }
+      
       .morphing.pulse {
         position: absolute;
         left: 0;
@@ -594,6 +611,25 @@
         height: 100%;
         background: rgb(242,210,100);
         animation: none;
+        padding: 2rem 1rem 1rem 1rem;
+      }
+      
+      @media (min-width: 768px) {
+        .morphing.pulse {
+          padding: 2rem 3rem;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .morphing.pulse {
+          padding: 2rem 5rem;
+        }
+      }
+      
+      @media (min-width: 1200px) {
+        .morohing.pulse {
+          padding: 2rem 8rem;
+        }
       }
       
       .morph-text {
@@ -644,6 +680,44 @@
       .morphing input {
         display: block;
         opacity: 1;
+      }
+      
+      .close-btn {
+        background: white;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        color: rgba(0,0,0,.8);
+        font-size: 2rem;
+        text-align: center;
+        font-family: ubuntu;
+        display: none;
+        opacity: 0;
+        transition: all .5s ease .5s;
+        padding: .5rem 0;
+        position: absolute;
+        left: calc(50% - 1.5rem);
+        margin-bottom: 0;
+      }
+      
+      @media (min-width: 768px) {
+        .close-btn {
+          position: static;
+          left: 0;
+        }
+      }
+      
+      .morphing .close-btn {
+        opacity: 1;
+        display: block;
+      }
+      
+      .pulse-row {
+        display: none;
+      }
+      
+      .morphing .pulse-row {
+        display: flex;
       }
       
       .row {
@@ -880,14 +954,17 @@
         </div>
               <div class="pulse">
                 <div class="question">?</div>
-                <div class="row justify-content-center mt-4">
-                  <div class="col-12 col-md-6 col-lg-4">
+                <div class="row justify-content-center mt-4 pulse-row">
+                  <div class="col-12 col-md-5 col-lg-4 align-self-center">
                     <p class="morph-text mb-4 mb-md-0">Your search: </p>
                   </div>
-                  <div class="col-12 col-md-6 col-lg-4">
+                  <div class="col-12 col-md-5 col-lg-4 mb-md-0 align-self-center mb-4">
                     <form>
                       <input type="text" name="search"/>
                     </form>
+                  </div>
+                  <div class="col-2 mb-0">
+                    <div class="close-btn">X</div>
                   </div>
                 </div>
               </div>
@@ -898,8 +975,12 @@
 <script>
   window.onload = function() {
     
-    $(".pulse").on("click", function() {
+    $(".question").on("click", function() {
       $(".pulse").addClass("morphing");
+    })
+    
+    $(".close-btn").on("click", function() {
+      $(".pulse").removeClass("morphing");
     })
     
   }
